@@ -43,37 +43,43 @@ export default function BookList({ books, onDeleteBook, onFetchBooks }) {
           Book deleted.
         </div>
       )}
-      <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        {currentBooks.map((book) => (
-          <div
-            key={book._id}
-            className="bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-2xl hover:bg-gray-600 transition-all duration-300 ease-in-out cursor-pointer"
-            onClick={() => handleBookClick(book)}
-          >
-            <img
-              src={
-                book.image ||
-                "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg?semt=ais_hybrid"
-              }
-              alt="Book cover"
-              onError={(e) => {
-                e.target.onerror = null;
-                e.target.src =
-                  "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg?semt=ais_hybrid";
-              }}
-              className="w-full h-40 object-cover mb-4 rounded"
-            />
-            <h3 className="text-lg font-bold text-white mb-2">{book.title}</h3>
-          </div>
-        ))}
-      </div>
+
+      {currentBooks.length > 0 ? (
+        <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          {currentBooks.map((book) => (
+            <div
+              key={book._id}
+              className="bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-2xl hover:bg-gray-600 transition-all duration-300 ease-in-out cursor-pointer"
+              onClick={() => handleBookClick(book)}
+            >
+              <img
+                src={
+                  book.image ||
+                  "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg?semt=ais_hybrid"
+                }
+                alt="Book cover"
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.src =
+                    "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg?semt=ais_hybrid";
+                }}
+                className="w-full h-40 object-cover mb-4 rounded"
+              />
+              <h3 className="text-lg font-bold text-white mb-2">{book.title}</h3>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <p className="text-center text-gray-300 mt-8">No books are listed.</p>
+      )}
+
       <div className="flex justify-center mt-6">
         {Array.from({ length: totalPages }, (_, index) => index + 1).map(
           (page) => (
             <button
               key={page}
               onClick={() => handlePageChange(page)}
-              className={`mx-2 px-4 py-4 rounded transition-colors duration-300 ease-in-out ${
+              className={`mx-2 px-4 py-2 rounded transition-colors duration-300 ease-in-out ${
                 page === currentPage
                   ? "bg-blue-500 hover:bg-blue-600 text-white"
                   : "bg-gray-700 hover:bg-gray-600 text-gray-300"
@@ -111,7 +117,7 @@ export default function BookList({ books, onDeleteBook, onFetchBooks }) {
             <p className="text-gray-500 mb-4">{selectedBook.description}</p>
             <button
               onClick={() => handleDeleteBook(selectedBook._id)}
-              className="mt-4 bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded transition-colors duration-300 ease-in-out"
+              className="mt-4 bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-lg transition-all duration-300 ease-in-out shadow-md hover:shadow-lg w-full max-w-xs"
             >
               Delete
             </button>
