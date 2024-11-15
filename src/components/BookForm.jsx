@@ -1,16 +1,16 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 export default function BookForm({ onAddBook }) {
-  const [title, setTitle] = useState('');
-  const [author, setAuthor] = useState('');
-  const [description, setDescription] = useState('');
+  const [title, setTitle] = useState("");
+  const [author, setAuthor] = useState("");
+  const [description, setDescription] = useState("");
   const [showNotification, setShowNotification] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if (!title.trim()) {
-      alert('Please enter a book title.');
+      alert("Please enter a book title.");
       return;
     }
 
@@ -20,14 +20,14 @@ export default function BookForm({ onAddBook }) {
     }
 
     if (!description.trim()) {
-      alert('Please enter a book description.');
+      alert("Please enter a book description.");
       return;
     }
 
     onAddBook({ title, author, description });
-    setTitle('');
-    setAuthor('');
-    setDescription('');
+    setTitle("");
+    setAuthor("");
+    setDescription("");
     setShowNotification(true);
 
     setTimeout(() => {
@@ -41,9 +41,7 @@ export default function BookForm({ onAddBook }) {
         onSubmit={handleSubmit}
         className="bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 p-8 rounded-2xl shadow-lg mb-8 max-w-3xl mx-auto sm:px-8 lg:px-12 text-white border border-indigo-800"
       >
-        <h2 className="text-3xl font-bold mb-6 text-center">
-          Add a New Book
-        </h2>
+        <h2 className="text-3xl font-bold mb-6 text-center">Add a New Book</h2>
         <div className="mb-6 sm:mb-8">
           <label htmlFor="title" className="block font-medium mb-2">
             Title
