@@ -3,6 +3,7 @@
 @tailwind utilities;
 body {
     height: 100vh;
+    background-color: cadetblue;
   }
   .ql-editor{
       font-size: 1.05rem;

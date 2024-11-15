@@ -9,8 +9,8 @@ export default function Header() {
         backgroundPosition: "center",
       }}
     >
-      <Link to="/" className="text-xl font-bold text-white shadow-lg">
-        Book App
+      <Link to="/" className="text-xl font-bold flex flex-auto justify-center align-middle border-r-amber-50 text-black shadow-lg bg-slate-400 text-center">
+        BUILD A BOOK LISTING WEB APPLICATION
       </Link>
     </header>
   );

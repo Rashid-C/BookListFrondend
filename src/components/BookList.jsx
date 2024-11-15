@@ -65,7 +65,7 @@ export default function BookList({ books, onDeleteBook, onFetchBooks }) {
                 }}
                 className="w-full h-40 object-cover mb-4 rounded"
               />
-              <h3 className="text-lg font-bold text-white mb-2">{book.title}</h3>
+              <h3 className="text-lg font-bold text-white mb-2">Title:{book.title}</h3>
             </div>
           ))}
         </div>
@@ -114,7 +114,7 @@ export default function BookList({ books, onDeleteBook, onFetchBooks }) {
               {selectedBook.title}
             </h2>
             <p className="text-gray-400 mb-2">Author: {selectedBook.author}</p>
-            <p className="text-gray-500 mb-4">{selectedBook.description}</p>
+            <p className="text-gray-500 mb-4">Description:{selectedBook.description}</p>
             <button
               onClick={() => handleDeleteBook(selectedBook._id)}
               className="mt-4 bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-lg transition-all duration-300 ease-in-out shadow-md hover:shadow-lg w-full max-w-xs"
