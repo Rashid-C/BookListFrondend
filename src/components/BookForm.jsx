@@ -1,16 +1,16 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 export default function BookForm({ onAddBook }) {
-  const [title, setTitle] = useState("");
-  const [author, setAuthor] = useState("");
-  const [description, setDescription] = useState("");
+  const [title, setTitle] = useState('');
+  const [author, setAuthor] = useState('');
+  const [description, setDescription] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
     onAddBook({ title, author, description });
-    setTitle("");
-    setAuthor("");
-    setDescription("");
+    setTitle('');
+    setAuthor('');
+    setDescription('');
   };
 
   return (
@@ -36,10 +36,7 @@ export default function BookForm({ onAddBook }) {
         />
       </div>
       <div className="mb-4">
-        <label
-          htmlFor="author"
-          className="block text-gray-700 font-medium mb-2"
-        >
+        <label htmlFor="author" className="block text-gray-700 font-medium mb-2">
           Author
         </label>
         <input
@@ -53,10 +50,7 @@ export default function BookForm({ onAddBook }) {
         />
       </div>
       <div className="mb-4">
-        <label
-          htmlFor="description"
-          className="block text-gray-700 font-medium mb-2"
-        >
+        <label htmlFor="description" className="block text-gray-700 font-medium mb-2">
           Description
         </label>
         <textarea
