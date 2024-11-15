@@ -7,7 +7,7 @@ import BookList from "./components/BookList";
 
 import { BrowserRouter } from "react-router-dom";
 
-const API_URL = "http://localhost:3000/books";
+const API_URL = "https://booklistingbackend.onrender.com/books";
 function App() {
   const [books, setBooks] = useState([]);
 
